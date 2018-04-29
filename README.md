@@ -91,5 +91,81 @@ Once open write
 ```
 PORT=80
 ```
-Then press ctrl + x , save the changes with Y and your enviroment will now run on PORT 80.
+Then press ctrl + x , save the changes with Y then Enter and your enviroment will now run on PORT 80.
 
+* Note if this doesn't work
+
+``` 
+nano settings.js
+```
+Change 
+```
+uiPort : process.env.PORT || 1880
+```
+To this 
+
+```
+uiPort : process.env.PORT || 80
+```
+Then press ctrl + x , save the changes with Y then Enter and your enviroment will now run on PORT 80.
+
+## Authentication 
+
+
+go into the settings.js file using
+
+```
+nano settings.js
+```
+Now this bit is difficult, you need to search for this code which will be commented out
+```javascript
+adminAuth: {
+    type: "credentials",
+    users: [{
+        username: "admin",
+        password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
+        permissions: "*"
+    }]
+}
+```
+
+Once uncommented you then need to save, this authentics admin with an unknown password. Thats not useful to use though.
+So we download the node-red-admin package from NPM
+```
+npm install node-red-admin -g
+
+```
+
+Then run the command
+
+```
+node-red-admin hash-pw
+``` 
+
+Copy the hash password and replace it on the code your have uncommented in the settings.js file
+```javascript
+adminAuth: {
+    type: "credentials",
+    users: [{
+        username: "admin",
+        password: "replace - with - your - hash",
+        permissions: "*"
+    }]
+}
+```
+Save this and run node-red you should now be able to log in on node-red flow at your ipaddress given by digital ocean.<br>
+Now lets make sure that the node red enviroment never stops using PM2<br>
+
+Start forever
+```
+pm2 start /usr/bin/node-red
+```
+Stop process
+```
+pm2 start /usr/bin/node-red
+```
+There is more [Here](https://gist.github.com/anmolnagpal/e1396bf7f0fc46bb5bde4146cd80c1f4)
+
+![Image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Image 1")
+
+Your done, node-red is setup and authenticated on http port
