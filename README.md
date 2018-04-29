@@ -77,3 +77,19 @@ or
 ```
 npm install forever -g 
 ``` 
+This will allow node-red to run in the background so it is always running. <br>
+First we need to sort out authentication and port number so we can view the front end! <br>
+Enter your node red folder
+``` 
+cd ~/.node-red
+```
+Next create a secure env file
+```
+nano .env
+```
+Once open write 
+```
+PORT=80
+```
+Then press ctrl + x , save the changes with Y and your enviroment will now run on PORT 80.
+
