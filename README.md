@@ -128,7 +128,7 @@ adminAuth: {
     }]
 }
 ```
-
+![Image](https://github.com/SamuelDBines/RaspberryPIFlows/blob/master/images/auth-comment.png "Image 1")
 Once uncommented you then need to save, this authentics admin with an unknown password. Thats not useful to use though.
 So we download the node-red-admin package from NPM
 ```
@@ -141,7 +141,7 @@ Then run the command
 ```
 node-red-admin hash-pw
 ``` 
-
+![Image](https://github.com/SamuelDBines/RaspberryPIFlows/blob/master/images/hash-pass.png "Image 1")
 Copy the hash password and replace it on the code your have uncommented in the settings.js file
 ```javascript
 adminAuth: {
@@ -166,6 +166,6 @@ pm2 start /usr/bin/node-red
 ```
 There is more [Here](https://gist.github.com/anmolnagpal/e1396bf7f0fc46bb5bde4146cd80c1f4)
 
-![Image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Image 1")
+
 
 Your done, node-red is setup and authenticated on http port
