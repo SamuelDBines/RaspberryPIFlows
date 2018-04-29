@@ -164,7 +164,7 @@ Stop process
 ```
 pm2 start /usr/bin/node-red
 ```
-There is more [Here](https://gist.github.com/anmolnagpal/e1396bf7f0fc46bb5bde4146cd80c1f4)
+More information on PM2 can be found [Here](https://gist.github.com/anmolnagpal/e1396bf7f0fc46bb5bde4146cd80c1f4)
 
 
 
